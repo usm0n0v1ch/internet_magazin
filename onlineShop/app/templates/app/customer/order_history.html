@@ -1,0 +1,30 @@
+
+{% extends 'app/layouts/base.html' %}
+
+{% block title %}История Заказов{% endblock %}
+
+{% block content %}
+    <div class="add-container">
+     <h1>История Заказов</h1>
+
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                <li>
+                    Заказ #{{ order.id }} - Статус: {{ order.get_status_display }} - Дата: {{ order.created_at }}
+                    <ul>
+                        {% for item in order.orderitem_set.all %}
+                            <li>
+                                {{ item.quantity }} x {{ item.product.name }} - {{ item.price_at_order }}$
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>У вас нет заказов.</p>
+    {% endif %}
+    </div>
+
+{% endblock %}

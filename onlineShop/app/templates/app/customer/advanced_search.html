@@ -1,0 +1,33 @@
+
+{% extends 'app/layouts/base.html' %}
+
+{% block title %}Расширенный Поиск{% endblock %}
+
+{% block content %}
+    <div class="advanced-search-container">
+        <h1 class="advanced-search-title">Расширенный Поиск</h1>
+        <form method="GET" class="advanced-search-form">
+            {{ form.as_p }}
+            <button type="submit" class="search-button">Поиск</button>
+        </form>
+
+        <h2 class="search-results-title">Результаты поиска</h2>
+        {% if products %}
+            <ul class="search-results-list">
+                {% for product in products %}
+                    <li class="search-result-item">
+                        <strong class="product-name">{{ product.name }}</strong>: <span class="product-price">{{ product.price }}$</span>
+                        <span class="product-availability">{% if product.in_stock %} (В наличии){% else %} (Нет в наличии){% endif %}</span>
+                        <span class="product-status">
+                            {% if product.status == 'NEW' %} (Новинка){% endif %}
+                            {% if product.status == 'POPULAR' %} (Популярный){% endif %}
+                            {% if product.status == 'DISCOUNT' %} (Со скидкой){% endif %}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-results">Нет результатов для вашего запроса.</p>
+        {% endif %}
+    </div>
+{% endblock %}

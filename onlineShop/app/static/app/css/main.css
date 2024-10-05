@@ -1,0 +1,141 @@
+.main-search {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.main-search-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-search-input-field {
+    width: 500px;
+    padding: 15px;
+    border-radius: 24px;
+    border: 5px solid #0eb87d;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+.search-button {
+    background-color: #0eb87d;
+    border: none;
+    border-radius: 24px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.products {
+    border: 5px solid #0eb87d;
+    padding: 20px;
+    border-radius: 24px;
+    margin: 20px;
+}
+
+.products-title {
+    font-size: 50px;
+    font-weight: bolder;
+    color: black;
+}
+
+.products-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: flex-start;
+    height: 350px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px;
+}
+
+.product-card {
+    border: 5px solid #0eb87d;
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+    height: 300px;
+}
+
+.product-card-image {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card-image-field {
+    border: 2px solid #0eb87d;
+    width: 200px;
+    height: 200px;
+}
+
+.product-card-name-and-price-and-basket-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.product-card-name-and-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-card-name {
+    margin-top: 10px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    max-width: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.product-card-price {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.product-card-add-to-basket-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0eb87d;
+    border-radius: 24px;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    color: #0eb87d;
+    transition: transform 0.3s ease;
+}
+
+.product-card-add-to-basket-button:hover {
+    transform: scale(1.1);
+}
+
+
+
+.update-quantity-btn {
+    background-color: #0eb87d; /* Button background color */
+    border: none; /* Remove default button border */
+    border-radius: 12px; /* Match input field border radius */
+    padding: 10px 15px; /* Adjust padding for the button */
+    color: white; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.update-quantity-btn:hover {
+    background-color: #0a7d5c; /* Darker shade on hover */
+}

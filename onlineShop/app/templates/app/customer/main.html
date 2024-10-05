@@ -1,0 +1,52 @@
+
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="main-container-child">
+        <div class="main-search">
+            <form method="GET" action="{% url 'search_view' %}">
+                <div class="main-search-input">
+                    <input class="main-search-input-field" type="text" name="search" placeholder="Поиск по названию" value="{{ search_query }}">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+
+        {% for category in product_categories %}
+            <div class="products">
+                <div class="products-title">{{ category.title }}</div>
+                <div class="products-cards">
+                    {% for product in category.products %}
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="product-card-image-field" src="{{ product.photo.url }}" alt="{{ product.name }}">
+                                </a>
+                            </div>
+                            <div class="product-card-name-and-price-and-basket-button">
+                                <div class="product-card-name-and-price">
+                                    <div class="product-card-name">{{ product.name }}</div>
+                                    <div class="product-card-price">{{ product.price }}$</div>
+                                </div>
+                                <form method="POST" action="{% url 'add_to_order' product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="product-card-add-to-basket-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div>Нет продуктов в этой категории.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <div>Нет категорий.</div>
+        {% endfor %}
+    </div>
+{% endblock %}

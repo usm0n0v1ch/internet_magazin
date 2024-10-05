@@ -1,0 +1,23 @@
+
+
+
+
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            <div class="header-name">Интернет магазин</div>
+            <div class="header-options">
+                <a href="{% url 'main' %}"><div class="header-option">Главная</div></a>
+                <a href="{% url 'catalog' %}"><div class="header-option">Каталог</div></a>
+                <a href="{% url 'advanced_search' %}"><div class="header-option">Расширенный поиск</div></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="{% url 'view_order' %}"><div class="header-basket"><i class="fas fa-shopping-cart"></i>Корзина</div></a>
+            <a><div class="header-basket"><i class="fas fa-user"></i></div></a>
+        </div>
+
+
+
+    </div>
+</header>

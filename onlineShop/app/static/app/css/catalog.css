@@ -1,0 +1,31 @@
+.catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.catalog-container h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    border: 5px solid #0eb87d;
+    border-radius: 24px;
+}
+
+.category {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.category h2 {
+    font-size: 1.8em;
+    color: #444;
+}
+
+.category p {
+    font-size: 1em;
+    color: #666;
+}

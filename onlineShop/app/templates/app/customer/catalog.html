@@ -1,0 +1,41 @@
+
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Каталог товаров{% endblock %}
+
+{% block content %}
+    <div class="catalog-container">
+        <h1>Каталог товаров</h1>
+
+        {% for category in categories %}
+            <div class="category">
+                <h2>{{ category.name }}</h2>
+                <p>{{ category.description }}</p>
+                <div class="products">
+                    {% for product in category.product_set.all %}
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img class="product-card-image-field" src="{{ product.photo.url }}" alt="{{ product.name }}">
+                            </div>
+                            <div class="product-card-name-and-price-and-basket-button">
+                                <div class="product-card-name-and-price">
+                                    <div class="product-card-name">{{ product.name }}</div>
+                                    <div class="product-card-price">{{ product.price }}$</div>
+                                </div>
+                                <div class="product-card-add-to-basket-button">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div>Нет продуктов в этой категории.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <div>Нет категорий.</div>
+        {% endfor %}
+    </div>
+{% endblock %}

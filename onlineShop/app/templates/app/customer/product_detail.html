@@ -1,0 +1,34 @@
+
+{% extends 'app/layouts/base.html' %}
+
+{% block title %}{{ product.name }} - Детали продукта{% endblock %}
+
+{% block content %}
+    <div class="product-detail-container">
+        <h1 class="product-detail-title">{{ product.name }}</h1>
+        <img class="product-detail-image" src="{{ product.photo.url }}" alt="{{ product.name }}">
+        <p class="product-detail-price">{{ product.price }}$</p>
+        <p class="product-detail-stock">{% if product.in_stock %}В наличии{% else %}Нет в наличии{% endif %}</p>
+        <h2 class="reviews-title">Отзывы</h2>
+
+        <div class="reviews-list">
+            {% for review in reviews %}
+                <div class="review-item">
+                    <strong>{{ review.user.username }}:</strong>
+                    <span class="review-rating">{{ review.rating }}★</span>
+                    <p class="review-comment">{{ review.comment }}</p>
+                    <p class="review-date">{{ review.created_at|date:"d M Y" }}</p>
+                </div>
+            {% empty %}
+                <p>Нет отзывов для этого продукта.</p>
+            {% endfor %}
+        </div>
+
+        <h3 class="add-review-title">Оставить отзыв</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-review-button">Отправить отзыв</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+header {
+    display: flex;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    background: #0eb87d;
+    padding: 20px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-name{
+    font-size: 30px;
+    font-weight: bold;
+    border: 5px solid white;
+    padding: 10px;
+    border-radius: 24px;
+}
+.header-basket{
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    border: 5px solid white;
+    padding: 10px;
+    border-radius: 24px;
+    gap: 10px;
+    align-items: center;
+}
+.header-right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.header-left{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.header-options{
+    display: flex;
+    gap: 20px;
+}
+.header-option{
+    font-size: 20px;
+    font-weight: bold;
+    border: 5px solid white;
+    padding: 10px;
+    border-radius: 24px;
+}

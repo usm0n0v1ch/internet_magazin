@@ -1,0 +1,35 @@
+{% extends 'app/layouts/base.html' %}
+
+{% block title %}Ваш Заказ{% endblock %}
+
+{% block content %}
+<div class="add-container">
+    <a href="{% url 'order_history' %}">
+        <div class="order-history">Посмотреть историю заказов</div>
+    </a>
+    <h1>Ваш Заказ</h1>
+
+    {% if order_items %}
+        <ul>
+            {% for item in order_items %}
+                <li>
+                    <form action="{% url 'update_order_item' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 50px;">
+                        x {{ item.product.name }} - {{ item.price_at_order }}$ за единицу
+                        <button type="submit" class="update-quantity-btn">Обновить</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Итого: {{ total }}$</p>
+        <form action="{% url 'place_order' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="order_id" value="{{ order.id }}">
+            <button type="submit" class="place-order-btn">Оформить заказ</button>
+        </form>
+    {% else %}
+        <p>Ваш заказ пуст.</p>
+    {% endif %}
+</div>
+{% endblock %}
